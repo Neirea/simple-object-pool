@@ -1,6 +1,7 @@
 # Simple Object Pool
 
-Super lightweight implementation of factory-based object pool.
+Super lightweight implementation of factory-based object pool.\
+There is no error handling if the same object is released into the pool to keep it fast.
 
 ## Library API
 
