@@ -1,6 +1,6 @@
 # Simple Object Pool
 
-**simple-object-pool** is super lightweight implementation of factory-based object pool.
+Super lightweight implementation of factory-based object pool.
 
 ## Library API
 
@@ -38,6 +38,6 @@ console.log(objPool.size()); // 0
 
 ## License
 
-[![License](https://img.shields.io/badge/license-MIT-a1356a)](LICENSE.txt)
+[![License](https://img.shields.io/badge/license-MIT-a1356a)](LICENSE)
 
-All code and documentation are (c) 2023 Eugene Shumilin and released under the [MIT License](http://getify.mit-license.org/). A copy of the MIT License [is also included](LICENSE.txt).
+All code and documentation are (c) 2023 Eugene Shumilin and released under the [MIT License](http://getify.mit-license.org/). A copy of the MIT License [is also included](LICENSE).

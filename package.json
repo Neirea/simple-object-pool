@@ -8,6 +8,11 @@
         "test": "jest"
     },
     "main": "./dist/index.js",
+    "files": [
+        "/dist/",
+        "/LICENSE",
+        "/README.md"
+    ],
     "license": "MIT",
     "devDependencies": {
         "@types/jest": "^29.5.3",
@@ -18,7 +23,6 @@
         "typescript": "^5.1.6"
     },
     "keywords": [
-        "node.js",
         "typescript",
         "object",
         "pool"
