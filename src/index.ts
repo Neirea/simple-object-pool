@@ -6,25 +6,30 @@ export default class ObjPool<T> {
 
     constructor(public factory: Factory<T>) {}
 
-    get() {
+    get(): T {
         if (this.length > 0) {
             return this.pool[--this.length];
         }
         return this.factory();
     }
-    release(item: T) {
+    release(item: T): void {
         this.pool[this.length++] = item;
     }
-    releaseMany(items: T[]) {
+    releaseMany(items: T[]): void {
         for (let i = 0; i < items.length; i++) {
             this.pool[this.length++] = items[i];
         }
     }
-    size() {
+    size(): number {
         return this.length;
     }
-    clear() {
+    clear(): void {
         this.pool.length = 0;
         this.length = 0;
+    }
+    shrink(targetSize: number = 10): void {
+        if (targetSize >= 0 && this.length > targetSize) {
+            this.length = this.pool.length = targetSize;
+        }
     }
 }
