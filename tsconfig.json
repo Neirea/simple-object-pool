@@ -1,13 +1,15 @@
 {
     "compilerOptions": {
-        "target": "es2016",
-        "module": "commonjs",
+        "target": "ES2022",
+        "lib": ["ES2022"],
+        "module": "NodeNext",
         "outDir": "./dist",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "removeComments": false
+        "isolatedModules": true,
+        "removeComments": false,
+        "declaration": true
     },
     "include": ["src/**/*"],
     "exclude": ["src/**/*.test.ts"]
