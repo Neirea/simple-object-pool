@@ -1,9 +1,9 @@
-import ObjPool from ".";
+import ObjectPool from ".";
 
-describe("ObjPool", () => {
+describe("ObjectPool", () => {
     test("should create an object pool and get/release objects", () => {
         const factory = () => ({});
-        const pool = new ObjPool(factory);
+        const pool = new ObjectPool(factory);
 
         const obj1 = pool.get();
         expect(obj1).toBeDefined();
@@ -15,7 +15,7 @@ describe("ObjPool", () => {
 
     test("should handle releasing multiple objects", () => {
         const factory = () => ({});
-        const pool = new ObjPool(factory);
+        const pool = new ObjectPool(factory);
 
         const obj1 = pool.get();
         const obj2 = pool.get();

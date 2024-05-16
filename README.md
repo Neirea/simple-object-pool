@@ -26,7 +26,7 @@ const obj3 = objPool.get();
 ```js
 objPool.release(obj1);
 // put multiple objects back into the pool
-objPool.releaseAll([obj2, obj3]);
+objPool.releaseMany([obj2, obj3]);
 console.log(objPool.size()); // 3
 ```
 

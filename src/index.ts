@@ -1,11 +1,12 @@
 type Factory<T> = (...args: any[]) => T;
 
-export default class ObjPool<T> {
+export default class ObjectPool<T> {
     private pool: T[] = [];
     private length: number = 0;
 
     /**
      * Creates an object pool.
+     * @constructor
      * @param {Factory<T>} factory The factory function to create new objects.
      */
     constructor(public factory: Factory<T>) {}
