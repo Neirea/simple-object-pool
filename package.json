@@ -1,6 +1,6 @@
 {
     "name": "simple-object-pool",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "type": "module",
     "exports": {
         "import": {
@@ -44,6 +44,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Neirea/object-pool.git"
+        "url": "https://github.com/Neirea/simple-object-pool.git"
     }
 }
