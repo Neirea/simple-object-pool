@@ -9,6 +9,18 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+            - name: Check for "[skip_publish]" in the commit message
+              id: check_message
+              run: |
+                  echo "COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
+                  if [[ "$COMMIT_MSG" == *"[skip_publish]"* ]]; then
+                      echo "skip_publish=true" >> $GITHUB_ENV
+                  else
+                      echo "skip_publish=false" >> $GITHUB_ENV
+
+            - name: Skip if flagged
+              if: env.skip_publish == 'true'
+              run: echo "Skipping publish step because [skip_publish] was found."
             - uses: actions/setup-node@v4
               with:
                   node-version: "20.x"
