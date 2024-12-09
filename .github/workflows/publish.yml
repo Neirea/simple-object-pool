@@ -17,7 +17,7 @@ jobs:
                       echo "skip_publish=true" >> $GITHUB_ENV
                   else
                       echo "skip_publish=false" >> $GITHUB_ENV
-
+                  fi
             - name: Skip if flagged
               if: env.skip_publish == 'true'
               run: echo "Skipping publish step because [skip_publish] was found."
