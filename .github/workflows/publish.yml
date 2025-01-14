@@ -12,16 +12,16 @@ jobs:
             - name: Check for "[skip_publish]" in the commit message
               id: check_message
               run: |
-                  echo "COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
+                  echo "COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> $GITHUB_OUTPUT
                   if [[ "$COMMIT_MSG" == *"[skip_publish]"* ]]; then
-                      echo "skip_publish=true" >> $GITHUB_ENV
+                      echo "skip_publish=true" >> $GITHUB_OUTPUT
                   else
-                      echo "skip_publish=false" >> $GITHUB_ENV
+                      echo "skip_publish=false" >> $GITHUB_OUTPUT
                   fi
     publish:
         runs-on: ubuntu-latest
-        if: ${{ env.skip_publish == 'false' }}
         needs: check_commit_message
+        if: needs.check_commit_message.outputs.skip_publish == 'false'
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
