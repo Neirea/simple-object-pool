@@ -12,7 +12,8 @@ jobs:
             - name: Check for "[skip_publish]" in the commit message
               id: check_message
               run: |
-                  echo "COMMIT_MSG=$(git log -1 --pretty=format:'%s')" >> $GITHUB_OUTPUT
+                  COMMIT_MSG=$(git log -1 --pretty=format:'%s' | xargs)
+                  echo "COMMIT_MSG=$COMMIT_MSG" >> $GITHUB_OUTPUT
                   if [[ "$COMMIT_MSG" == *"[skip_publish]"* ]]; then
                       echo "skip_publish=true" >> $GITHUB_OUTPUT
                   else
