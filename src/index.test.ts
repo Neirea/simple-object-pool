@@ -1,8 +1,8 @@
-import ObjectPool from ".";
+import ObjectPool from "./index.js";
 
 describe("ObjectPool", () => {
     test("should create an object pool and get/release objects", () => {
-        const factory = () => ({});
+        const factory = (): object => ({});
         const pool = new ObjectPool(factory);
 
         const obj1 = pool.get();
@@ -14,7 +14,7 @@ describe("ObjectPool", () => {
     });
 
     test("should handle releasing multiple objects", () => {
-        const factory = () => ({});
+        const factory = (): object => ({});
         const pool = new ObjectPool(factory);
 
         const obj1 = pool.get();
