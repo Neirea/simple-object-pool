@@ -14,7 +14,7 @@ jobs:
               run: |
                   COMMIT_MSG=$(git log -1 --pretty=format:'%s' | xargs)
                   echo "COMMIT_MSG=$COMMIT_MSG" >> $GITHUB_OUTPUT
-                  if echo "$COMMIT_MSG" | grep -q "#np" then
+                  if echo "$COMMIT_MSG" | grep -q "#np"; then
                       echo "no_publish=true" >> $GITHUB_OUTPUT
                   else
                       echo "no_publish=false" >> $GITHUB_OUTPUT
