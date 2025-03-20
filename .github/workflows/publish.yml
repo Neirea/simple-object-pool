@@ -11,8 +11,6 @@ jobs:
             no_publish: ${{ steps.check_message.outputs.no_publish }}
         steps:
             - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
             - name: Check for "#np" in the commit message
               id: check_message
               run: |
