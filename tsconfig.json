@@ -9,12 +9,7 @@
         "skipLibCheck": true,
         "isolatedModules": true,
         "removeComments": false,
-        "declaration": true,
-        "strictNullChecks": true,
-        "forceConsistentCasingInFileNames": true,
-        "noImplicitAny": false,
-        "strictBindCallApply": false,
-        "noFallthroughCasesInSwitch": false
+        "declaration": true
     },
     "include": ["src/**/*"],
     "exclude": ["src/**/*.test.ts"]
