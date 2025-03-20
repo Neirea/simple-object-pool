@@ -7,13 +7,17 @@ on:
 jobs:
     check_commit_message:
         runs-on: ubuntu-latest
+        outputs:
+            no_publish: ${{ steps.check_message.outputs.no_publish }}
         steps:
             - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
             - name: Check for "#np" in the commit message
               id: check_message
               run: |
-                  COMMIT_MSG=$(git log -1 --pretty=format:'%s' | xargs)
-                  echo "COMMIT_MSG=$COMMIT_MSG" >> $GITHUB_OUTPUT
+                  COMMIT_MSG=$(git log -1 --pretty=format:'%s')
+                  echo "Commit message: $COMMIT_MSG"
                   if echo "$COMMIT_MSG" | grep -q "#np"; then
                       echo "no_publish=true" >> $GITHUB_OUTPUT
                   else
